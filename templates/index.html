@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Campaign Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <nav>
+        <h1>📱 QR Campaign Tracker</h1>
+        <a href="/dashboard">View Dashboard →</a>
+    </nav>
+
+    <main>
+        <div class="card">
+            <h2>Create a New Campaign</h2>
+            <p class="subtitle">Generate a trackable QR code for your business in seconds</p>
+
+            <div class="form-group">
+                <label>Campaign Name</label>
+                <input type="text" id="name" placeholder="e.g. Restaurant Menu - Table 5" />
+            </div>
+
+            <div class="form-group">
+                <label>Destination URL</label>
+                <input type="url" id="url" placeholder="https://your-link.com" />
+            </div>
+
+            <div class="form-group">
+                <label>QR Code Color</label>
+                <div class="color-row">
+                    <input type="color" id="color" value="#000000" />
+                    <span id="color-label">#000000</span>
+                </div>
+            </div>
+
+            <button onclick="generateQR()">Generate QR Code ⚡</button>
+        </div>
+
+        <div class="card result-card" id="result" style="display:none;">
+            <h2>Your QR Code is Ready! 🎉</h2>
+            <img id="qr-image" src="" alt="QR Code" />
+            <div class="result-info">
+                <p><strong>Tracking URL:</strong> <span id="tracking-url"></span></p>
+                <p><strong>Short Code:</strong> <span id="short-code"></span></p>
+            </div>
+            <div class="button-row">
+                <a id="download-btn" href="" download>⬇️ Download QR</a>
+                <a href="/dashboard">📊 View Dashboard</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Update color label live
+        document.getElementById("color").addEventListener("input", function() {
+            document.getElementById("color-label").textContent = this.value.toUpperCase();
+        });
+
+        async function generateQR() {
+            const name = document.getElementById("name").value.trim();
+            const url = document.getElementById("url").value.trim();
+            const color = document.getElementById("color").value;
+
+            if (!name || !url) {
+                alert("Please fill in both Campaign Name and URL!");
+                return;
+            }
+
+            const btn = document.querySelector("button");
+            btn.textContent = "Generating...";
+            btn.disabled = true;
+
+            try {
+                const response = await fetch("/create", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, destination_url: url, color })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    document.getElementById("qr-image").src = data.qr_image;
+                    document.getElementById("tracking-url").textContent = data.tracking_url;
+                    document.getElementById("short-code").textContent = data.short_code;
+                    document.getElementById("download-btn").href = data.qr_image;
+                    document.getElementById("result").style.display = "block";
+                    document.getElementById("result").scrollIntoView({ behavior: "smooth" });
+                } else {
+                    alert("Error: " + data.error);
+                }
+            } catch (err) {
+                alert("Something went wrong. Is the server running?");
+            }
+
+            btn.textContent = "Generate QR Code ⚡";
+            btn.disabled = false;
+        }
+    </script>
+
+</body>
+</html>
