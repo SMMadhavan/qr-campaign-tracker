@@ -1,0 +1,412 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* ─── Navbar ─────────────────────────────────────────────── */
+nav {
+    background: #ffffff;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav h1 {
+    font-size: 1.4rem;
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+nav a {
+    background: #4f46e5;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+nav a:hover {
+    background: #4338ca;
+}
+
+/* ─── Main ───────────────────────────────────────────────── */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ─── Cards ──────────────────────────────────────────────── */
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    margin-bottom: 24px;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    color: #1e1b4b;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+}
+
+/* ─── Form ───────────────────────────────────────────────── */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: border 0.2s;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #4f46e5;
+}
+
+.color-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.color-row input[type="color"] {
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.color-row span {
+    font-size: 0.95rem;
+    color: #6b7280;
+    font-family: monospace;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 8px;
+}
+
+button:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    background: #a5b4fc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ─── Result Card ────────────────────────────────────────── */
+.result-card {
+    text-align: center;
+}
+
+.result-card img {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.result-info {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 16px 0;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 2;
+    word-break: break-all;
+}
+
+.button-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.button-row a {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.button-row a:first-child {
+    background: #4f46e5;
+    color: white;
+}
+
+.button-row a:last-child {
+    background: #f0f2f5;
+    color: #4f46e5;
+    border: 2px solid #4f46e5;
+}
+
+.button-row a:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+/* ─── Dashboard ──────────────────────────────────────────── */
+.dashboard-header {
+    margin-bottom: 28px;
+}
+
+.dashboard-header h2 {
+    font-size: 1.6rem;
+    color: #1e1b4b;
+}
+
+.campaigns-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.campaign-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+.campaign-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.campaign-top h3 {
+    font-size: 1.1rem;
+    color: #1e1b4b;
+    margin-bottom: 4px;
+}
+
+.dest-url {
+    font-size: 0.85rem;
+    color: #6b7280;
+    word-break: break-all;
+}
+
+.scan-badge {
+    background: #ede9fe;
+    border-radius: 12px;
+    padding: 10px 16px;
+    text-align: center;
+    min-width: 70px;
+}
+
+.scan-badge span {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #4f46e5;
+    line-height: 1;
+}
+
+.scan-badge small {
+    font-size: 0.75rem;
+    color: #7c3aed;
+    font-weight: 500;
+}
+
+.campaign-meta {
+    font-size: 0.85rem;
+    color: #6b7280;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.campaign-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.qr-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.action-buttons a,
+.action-buttons button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    width: 160px;
+}
+
+.action-buttons a {
+    background: #f0f2f5;
+    color: #4f46e5;
+    border: 2px solid #4f46e5;
+}
+
+.action-buttons button {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    margin-top: 0;
+    width: 160px;
+}
+
+.action-buttons a:hover,
+.action-buttons button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* ─── Scan History ───────────────────────────────────────── */
+.scan-history {
+    margin-top: 20px;
+    border-top: 2px solid #f0f2f5;
+    padding-top: 16px;
+}
+
+.scan-history h4 {
+    font-size: 0.95rem;
+    color: #374151;
+    margin-bottom: 12px;
+}
+
+.scan-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: #374151;
+}
+
+.no-scans {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 16px;
+}
+
+/* ─── Empty State ────────────────────────────────────────── */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+.empty-state h3 {
+    font-size: 1.3rem;
+    color: #1e1b4b;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    color: #6b7280;
+    margin-bottom: 24px;
+}
+
+.empty-state a {
+    background: #4f46e5;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.empty-state a:hover {
+    background: #4338ca;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+    nav {
+        padding: 14px 20px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    .campaign-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+}
