@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - QR Campaign Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <nav>
+        <h1>📱 QR Campaign Tracker</h1>
+        <a href="/">+ Create New Campaign</a>
+    </nav>
+
+    <main>
+        <div class="dashboard-header">
+            <h2>Your Campaigns 📊</h2>
+            <p class="subtitle">Track how your QR codes are performing in real-time</p>
+        </div>
+
+        {% if campaigns %}
+        <div class="campaigns-grid">
+            {% for campaign in campaigns %}
+            <div class="campaign-card">
+                <div class="campaign-top">
+                    <div>
+                        <h3>{{ campaign[0] }}</h3>
+                        <p class="dest-url">🔗 {{ campaign[1] }}</p>
+                    </div>
+                    <div class="scan-badge">
+                        <span>{{ campaign[4] }}</span>
+                        <small>scans</small>
+                    </div>
+                </div>
+
+                <div class="campaign-meta">
+                    <p>📅 Created: {{ campaign[3] }}</p>
+                    <p>🔑 Code: <strong>{{ campaign[2] }}</strong></p>
+                </div>
+
+                <div class="campaign-actions">
+                    <img src="/static/qr_codes/{{ campaign[2] }}.png" alt="QR Code" class="qr-thumb" />
+                    <div class="action-buttons">
+                        <a href="/static/qr_codes/{{ campaign[2] }}.png" download>⬇️ Download</a>
+                        <button onclick="loadScans('{{ campaign[2] }}')">📋 Scan History</button>
+                    </div>
+                </div>
+
+                <div class="scan-history" id="history-{{ campaign[2] }}" style="display:none;">
+                    <h4>Scan History</h4>
+                    <div class="scan-list" id="list-{{ campaign[2] }}">
+                        Loading...
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% else %}
+        <div class="empty-state">
+            <h3>No campaigns yet! 👀</h3>
+            <p>Create your first QR campaign and start tracking scans.</p>
+            <a href="/">Create First Campaign →</a>
+        </div>
+        {% endif %}
+    </main>
+
+    <script>
+        async function loadScans(shortCode) {
+            const historyDiv = document.getElementById(`history-${shortCode}`);
+            const listDiv = document.getElementById(`list-${shortCode}`);
+
+            if (historyDiv.style.display === "block") {
+                historyDiv.style.display = "none";
+                return;
+            }
+
+            historyDiv.style.display = "block";
+            listDiv.innerHTML = "Loading...";
+
+            try {
+                const response = await fetch(`/api/scans/${shortCode}`);
+                const scans = await response.json();
+
+                if (scans.length === 0) {
+                    listDiv.innerHTML = "<p class='no-scans'>No scans yet. Share your QR code!</p>";
+                    return;
+                }
+
+                listDiv.innerHTML = scans.map(scan => `
+                    <div class="scan-item">
+                        <span>🕐 ${scan.scanned_at}</span>
+                        <span>📍 ${scan.ip}</span>
+                    </div>
+                `).join("");
+
+            } catch (err) {
+                listDiv.innerHTML = "<p>Error loading scans.</p>";
+            }
+        }
+    </script>
+
+</body>
+</html>
