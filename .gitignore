@@ -1,0 +1,5 @@
+campaigns.db
+__pycache__/
+*.pyc
+.env
+qr_codes/

@@ -103,4 +103,4 @@ def api_scans(short_code):
     return jsonify(scan_list)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
