@@ -120,4 +120,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-> Built with ❤️ for small businesses and marketers who deserve better tools without the premium price tag.
+> Built with Claude for small businesses and marketers who deserve better tools without the premium price tag.
