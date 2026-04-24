@@ -1,10 +1,10 @@
-# 📱 QR Campaign Tracker
+#  QR Campaign Tracker
 
 A lightweight, open-source tool to generate branded QR codes and track every scan in real-time. Built for small businesses, freelancers, and marketers who want actionable insights from their campaigns — without paying for expensive tools.
 
 ---
 
-## 🚀 Features
+##  Features
 
 - **Instant QR Generation** — Create a trackable QR code for any URL in seconds
 - **Custom Branding** — Choose your QR code color to match your brand
@@ -16,7 +16,7 @@ A lightweight, open-source tool to generate branded QR codes and track every sca
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -27,7 +27,7 @@ A lightweight, open-source tool to generate branded QR codes and track every sca
 
 ---
 
-## ⚙️ Installation & Setup
+##  Installation & Setup
 
 ### Prerequisites
 - Python 3.x installed on your machine
@@ -56,11 +56,11 @@ py app.py
 http://127.0.0.1:5000
 ```
 
-That's it! No environment variables, no complex setup. 🎉
+That's it! No environment variables, no complex setup. 
 
 ---
 
-## 📖 How It Works
+##  How It Works
 ```
 User creates a campaign (name + destination URL)
         ↓
@@ -94,7 +94,7 @@ qr-campaign-tracker/
 
 ---
 
-## 🗺️ Future Roadmap
+##  Future Roadmap
 
 - [ ] Logo upload — embed your brand logo in the center of the QR
 - [ ] Location tracking — detect country/city from scan IP
@@ -107,14 +107,14 @@ qr-campaign-tracker/
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions, issues and feature requests are welcome!
 Feel free to open a pull request or raise an issue.
 
 ---
 
-## 📄 License
+##  License
 
 This project is open source and available under the [MIT License](LICENSE).
 
