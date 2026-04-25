@@ -16,7 +16,7 @@ os.makedirs(QR_FOLDER, exist_ok=True)
 # Initialize the database on startup
 init_db()
 
-# ─── Generate a random short code ───────────────────────────────────────────
+# Generate a random short code
 def generate_short_code(length=6):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
