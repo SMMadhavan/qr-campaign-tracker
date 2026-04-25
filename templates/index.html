@@ -36,19 +36,19 @@
                 </div>
             </div>
 
-            <button onclick="generateQR()">Generate QR Code ⚡</button>
+            <button onclick="generateQR()">Generate QR Code </button>
         </div>
 
         <div class="card result-card" id="result" style="display:none;">
-            <h2>Your QR Code is Ready! 🎉</h2>
+            <h2>Your QR Code is Ready! </h2>
             <img id="qr-image" src="" alt="QR Code" />
             <div class="result-info">
                 <p><strong>Tracking URL:</strong> <span id="tracking-url"></span></p>
                 <p><strong>Short Code:</strong> <span id="short-code"></span></p>
             </div>
             <div class="button-row">
-                <a id="download-btn" href="" download>⬇️ Download QR</a>
-                <a href="/dashboard">📊 View Dashboard</a>
+                <a id="download-btn" href="" download> Download QR</a>
+                <a href="/dashboard"> View Dashboard</a>
             </div>
         </div>
     </main>
@@ -96,7 +96,7 @@
                 alert("Something went wrong. Is the server running?");
             }
 
-            btn.textContent = "Generate QR Code ⚡";
+            btn.textContent = "Generate QR Code ";
             btn.disabled = false;
         }
     </script>
