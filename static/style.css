@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
 }
 
-/* ─── Navbar ─────────────────────────────────────────────── */
+/*  Navbar  */
 nav {
     background: #ffffff;
     padding: 16px 40px;
@@ -45,14 +45,14 @@ nav a:hover {
     background: #4338ca;
 }
 
-/* ─── Main ───────────────────────────────────────────────── */
+/*  Main  */
 main {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-/* ─── Cards ──────────────────────────────────────────────── */
+/*  Cards  */
 .card {
     background: white;
     border-radius: 16px;
@@ -73,7 +73,7 @@ main {
     margin-bottom: 28px;
 }
 
-/* ─── Form ───────────────────────────────────────────────── */
+/*  Form  */
 .form-group {
     margin-bottom: 20px;
 }
@@ -147,7 +147,7 @@ button:disabled {
     transform: none;
 }
 
-/* ─── Result Card ────────────────────────────────────────── */
+/*  Result Card  */
 .result-card {
     text-align: center;
 }
@@ -204,7 +204,7 @@ button:disabled {
     opacity: 0.9;
 }
 
-/* ─── Dashboard ──────────────────────────────────────────── */
+/*  Dashboard  */
 .dashboard-header {
     margin-bottom: 28px;
 }
@@ -326,7 +326,7 @@ button:disabled {
     transform: translateY(-1px);
 }
 
-/* ─── Scan History ───────────────────────────────────────── */
+/*  Scan History  */
 .scan-history {
     margin-top: 20px;
     border-top: 2px solid #f0f2f5;
@@ -357,7 +357,7 @@ button:disabled {
     padding: 16px;
 }
 
-/* ─── Empty State ────────────────────────────────────────── */
+/*  Empty State  */
 .empty-state {
     text-align: center;
     padding: 60px 20px;
@@ -391,7 +391,7 @@ button:disabled {
     background: #4338ca;
 }
 
-/* ─── Responsive ─────────────────────────────────────────── */
+/*  Responsive  */
 @media (max-width: 600px) {
     nav {
         padding: 14px 20px;
