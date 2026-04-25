@@ -20,12 +20,12 @@ init_db()
 def generate_short_code(length=6):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
-# ─── Home page ───────────────────────────────────────────────────────────────
+# Home page 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-# ─── Create a new campaign + generate QR ─────────────────────────────────────
+# Create a new campaign + generate QR 
 @app.route("/create", methods=["POST"])
 def create():
     data = request.get_json()
@@ -74,7 +74,7 @@ def create():
         "qr_image": f"/static/qr_codes/{qr_filename}"
     })
 
-# ─── Track scan + redirect ────────────────────────────────────────────────────
+# Track scan + redirect 
 @app.route("/track/<short_code>")
 def track(short_code):
     campaign = get_campaign_by_code(short_code)
