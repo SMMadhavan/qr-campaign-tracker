@@ -89,13 +89,13 @@ def track(short_code):
     # Redirect to destination
     return redirect(campaign[2])
 
-# ─── Dashboard ────────────────────────────────────────────────────────────────
+# Dashboard 
 @app.route("/dashboard")
 def dashboard():
     campaigns = get_all_campaigns()
     return render_template("dashboard.html", campaigns=campaigns)
 
-# ─── API: Get scan details for a campaign ─────────────────────────────────────
+# API: Get scan details for a campaign 
 @app.route("/api/scans/<short_code>")
 def api_scans(short_code):
     scans = get_scans_by_code(short_code)
