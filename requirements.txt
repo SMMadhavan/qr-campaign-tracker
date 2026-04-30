@@ -1,2 +1,5 @@
+os
 flask
 qrcode
+random
+string
